@@ -1,0 +1,53 @@
+body{
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url("image.jpg");
+    opacity: 80%;
+    background-size: cover;
+}
+
+.container{
+    color:white;
+    font-family: 'Abel', sans-serif;
+}
+.heading{
+    color:lightgrey;
+}
+
+.form-check-label{
+    color:black;
+}
+
+input[type="text"],
+select.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  -webkit-box-shadow: none;
+  box-shadow: 2px 2px rgb(173, 170, 170);
+  border-radius: 0;
+  color:white;
+}
+
+input[type="text"]:focus,
+select.form-control:focus {
+    background:transparent;
+  -webkit-box-shadow: none;
+  border:2px rgb(103, 224, 103);
+  box-shadow: 2px 2px  rgb(108, 216, 108);
+  border-bottom: 1px solid lightgreen;
+  color:white;
+}
+
+.mid{
+    margin-top: 13%;
+}
+
+label{
+    color: aquamarine;
+}
+
+@media only screen and (max-width: 480px) {
+    body{
+    background: url("./image.jpg");
+    opacity: 80%;
+    }
+}
