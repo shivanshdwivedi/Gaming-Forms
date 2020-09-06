@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="/css/form.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" type="image/png" href="/images/image.jpg" />
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mid" style="padding-top: 25px; margin-top: 10px">
+          <a href="https://bvpcsi.com"
+            ><img
+              class="logo-icon"
+              src="images/logo.png"
+              style="
+                width: 180px;
+                height: 100px;
+                padding-bottom: 0px;
+                border-bottom-width: 50px;
+                padding-top: 0px;
+                border-right-width: 20px;
+              "
+            />
+          </a>
+          <a href="https://bvpcsi.com/glitch.html">
+            <img
+              class="logo-icon"
+              src="images/glitch LOGO WHITE.png"
+              style="
+                width: 150px;
+                height: 150px;
+                padding-bottom: 0px;
+                border-bottom-width: 10px;
+                padding-top: 0px;
+                border-right-width: 10px;
+              "
+            />
+          </a>
+
+          <h2 style="font-family: 'Trade Winds', cursive; padding-top: 50px">
+            BVPCSI <span style="color: lightgreen">x</span> GLITCH -
+            <span style="color: lightgreen">Chess</span>
+          </h2>
+          <p style="font-weight: 50px; line-height: 25px">
+            Checkmate.” The word is absolute and final; the game is over. Chess
+            is an exciting battle of wits that can take hours for a single game.
+            Each move is important, and a lapse of concentration even for a
+            moment can spell the end. Whether you win or lose, you know it is
+            entirely because of how you played during the game. You cannot pawn
+            off your failures on others, and nobody can claim credit for your
+            success.
+          </p>
+          <a
+            href="https://www.google.com/url?q=https://discord.gg/MTxXwxb&sa=D&ust=1599324101385000&usg=AFQjCNHSXiuwm2192GFGOwalHi5aDUAQPw"
+            target="-blank"
+            >Discord Link to Join the GLITCH Gaming Week Server:</a
+          >
+        </div>
+        <div class="col-md-6 heading" style="padding-top: 25px">
+          <h2 style="font-family: 'Trade Winds', cursive" class="text-center">
+            Registration Form
+          </h2>
+          <form method="POST" action="/chess">
+            <div class="form-group">
+              <label>Name:</label>
+              <input
+                id="myname"
+                name="name"
+                class="form-control"
+                type="text"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Email ID:</label>
+              <input
+                id="myemail"
+                name="email"
+                class="form-control"
+                type="text"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>College/School Name:</label>
+              <input
+                id="myclg"
+                name="college"
+                class="form-control"
+                type="text"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Mobile Number:</label>
+              <input
+                id="mynum"
+                name="mobileno"
+                class="form-control"
+                type="text"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Discord Name:</label>
+              <input
+                id="mydiscord"
+                name="discordname"
+                class="form-control"
+                type="text"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label
+                >Do u have an account on
+                <a style="color: gold" href="https://en.chessbase.com/"
+                  >chessbase.com</a
+                >
+                ?</label
+              >
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="chessbaseAccount"
+                  id="inlineRadio1"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="chessbaseAccount"
+                  id="inlineRadio2"
+                  value="No"
+                />
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label
+                >Chessbase ID: If no, then
+                <a
+                  style="color: gold; font: bold"
+                  href="https://play.chessbase.com/en/Logon?returnurl=https%3A%2F%2Fplay.chessbase.com%2Fen%2FPlay%3Froom%3DCSI_chess"
+                  >Create an Account</a
+                ></label
+              >
+              <input
+                id="mydiscord"
+                name="chessbaseID"
+                class="form-control"
+                type="text"
+                required
+              />
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      bootstrapValidate("#myemail", "email:Enter a valid Email address");
+      bootstrapValidate("#myname", "required:This field is required");
+      bootstrapValidate("#myclg", "required:This field is required");
+      bootstrapValidate("#mynum", "max:10:Enter a valid number");
+      bootstrapValidate("#mydiscord", "required:This field is required");
+    </script>
+  </body>
+</html>
