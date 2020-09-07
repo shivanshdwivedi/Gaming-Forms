@@ -3,7 +3,10 @@ const router = express.Router();
 const Cod = require("../models/Cod");
 
 router.get("/", (req, res) => {
-  res.render("COD");
+  res.render("COD",{
+    error: req.flash("error"),
+    success: req.flash("success"),
+  });
 });
 
 router.post("/", async (req, res) => {
@@ -12,9 +15,9 @@ router.post("/", async (req, res) => {
   try {
     let coduser = await Cod.findOne({ email });
     if (coduser) {
-      return res
-        .status(400)
-        .json({ errors: [{ msg: "Email already exists" }] });
+      req.flash("error", "Email already registered");
+      // return res.status(400).json({ errors: [{ msg: "Email already exists" }] });
+      return res.redirect("/cod");
     }
     coduser = new Cod({
       name,
@@ -28,7 +31,8 @@ router.post("/", async (req, res) => {
     coduser
       .save()
       .then(() => {
-        res.redirect("https://bvpcsi.com/glitch.html");
+        req.flash("success", "Thank you for registering!");
+        res.redirect("/cod");
       })
       .catch((err) => {
         res.status(500).send("Server error");

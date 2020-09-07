@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const Valorant = require("../models/Valorant");
+const { request } = require("express");
 
 router.get("/", (req, res) => {
-  res.render("valorant");
+  res.render("valorant", {
+    error: req.flash("error"),
+    success: req.flash("success"),
+  });
 });
 
 router.post("/", async (req, res) => {
@@ -20,7 +24,9 @@ router.post("/", async (req, res) => {
   try {
     let valorantuser = await Valorant.findOne({ email });
     if (valorantuser) {
-      return res.status(400).json({ errors: [{ msg: "Email already exists" }] });
+      req.flash("error", "Email already registered");
+      // return res.status(400).json({ errors: [{ msg: "Email already exists" }] });
+      return res.redirect("/valorant");
     }
     valorantuser = new Valorant({
       teamleadername,
@@ -33,11 +39,15 @@ router.post("/", async (req, res) => {
       member4id,
     });
 
-    valorantuser.save().then(()=>{
-      res.redirect('https://bvpcsi.com/glitch.html')
-    }).catch((err)=>{
-      res.status(500).send('Server error')
-    });
+    valorantuser
+      .save()
+      .then(() => {
+        req.flash("success", "Thank you for registering!");
+        res.redirect("/valorant");
+      })
+      .catch((err) => {
+        res.status(500).send("Server error");
+      });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
