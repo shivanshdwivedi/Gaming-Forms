@@ -1,9 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const session = require("express-session");
-const cookieParser = require("cookie-parser");
-const flash = require("connect-flash");
+
 
 const connectDB = require("./config/db");
 
@@ -22,17 +20,7 @@ app.use(bodyParser.json());
 
 // app.use(cookieParser("secret"));
 
-app.use(
-  session({ secret: "mysecret", resave: false, saveUninitialized: true })
-);
 
-app.use(flash());
-
-app.use((req, res, next) => {
-  res.locals.message = req.session.message;
-  delete req.session.message;
-  next();
-});
 
 app.get("/", (req, res) => {
   res.redirect("https://bvpcsi.com/glitch.html");
@@ -41,6 +29,7 @@ app.get("/", (req, res) => {
 app.use("/valorant", require("./routes/valorant"));
 app.use("/minecraft", require("./routes/minecraft"));
 app.use("/chess", require("./routes/chess"));
+app.use("/cod", require("./routes/cod"));
 
 const PORT = process.env.PORT || 5000;
 
