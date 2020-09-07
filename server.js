@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const flush = require("connect-flash");
 
 const connectDB = require("./config/db");
 
@@ -18,9 +20,18 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// app.use(cookieParser("secret"));
-
-
+app.use(cookieParser());
+app.use(
+  session({
+    secret: "secret",
+    cookie: {
+      maxAge: 60000,
+    },
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(flush());
 
 app.get("/", (req, res) => {
   res.redirect("https://bvpcsi.com/glitch.html");

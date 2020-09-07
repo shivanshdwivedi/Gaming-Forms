@@ -3,7 +3,10 @@ const router = express.Router();
 const Chess = require("../models/Chess");
 
 router.get("/", (req, res) => {
-  res.render("formss");
+  res.render("formss",{
+    error: req.flash("error"),
+    success: req.flash("success"),
+  });
 });
 
 router.post("/", async (req, res) => {
@@ -20,9 +23,9 @@ router.post("/", async (req, res) => {
   try {
     let chessuser = await Chess.findOne({ email });
     if (chessuser) {
-      return res
-        .status(400)
-        .json({ errors: [{ msg: "Email already exists" }] });
+      req.flash("error", "Email already registered");
+      // return res.status(400).json({ errors: [{ msg: "Email already exists" }] });
+      return res.redirect("/chess");
     }
     chessuser = new Chess({
       name,
@@ -37,7 +40,8 @@ router.post("/", async (req, res) => {
     chessuser
       .save()
       .then(() => {
-        res.redirect("https://bvpcsi.com/glitch.html");
+        req.flash("success", "Thank you for registering!");
+        res.redirect("/chess");
       })
       .catch((err) => {
         res.status(500).send("Server error");
