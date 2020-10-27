@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { name, email, college, mobileno, codUsername, discordname ,filename } = req.body;
+  const { name, email, college, mobileno, codUsername, discordname } = req.body;
 
   try {
     let coduser = await Cod.findOne({ email });
@@ -26,7 +26,6 @@ router.post("/", async (req, res) => {
       mobileno,
       codUsername,
       discordname,
-      filename,
     });
 
     coduser
