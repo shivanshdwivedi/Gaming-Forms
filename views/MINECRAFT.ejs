@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="/css/MINECRAFT.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <%if(error.length>0){%>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <%=error%>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <%}%>
+          <%if(success.length>0){%>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <%=success%>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <%}%>
+        <div class="row">
+            <div class="col-md-6 mid" style="padding-top: 25px; margin-top: 10px;">
+                <a href="https://bvpcsi.com"><img class="logo-icon" src="images/logo.png"style="width:180px; height: 100px; padding-bottom: 0px; border-bottom-width: 50px; padding-top: 0px; border-right-width: 20px;"> </a> 
+                <a href="https://bvpcsi.com/glitch.html"> <img class="logo-icon" src="images/glitch LOGO WHITE.png" style="width:150px; height: 150px; padding-bottom: 0px; border-bottom-width: 10px; padding-top: 0px; border-right-width: 10px;"> </a>
+                <h2 style ="font-family: 'Trade Winds', cursive; padding-top: 50px;">BVPCSI <span style="color:lightgreen">x</span> GLITCH - <span style="color: lightgreen;">Minecraft</span></h2>
+                <p  style="font-weight: 50px; line-height: 25px;">Requirements:
+Minecraft Java Edition (1.16.2)
+
+Games that will be organized are Parkour and Spleef. Both will be held on separate days.
+
+Parkour:
+Parkour is an obstacle course game within Minecraft that tests players’ agility by requiring them to run, jump, and do other acrobatic moves to get from point A to point B. The goal of parkour is to get from start to finish as fast as you can. Pass more levels than the other contestants, and you win!
+
+Spleef: 
+In Spleef, players destroy blocks below other players, allowing them to fall off the playing field and into a pit. The objective of the game is to be the last player standing on the field.</p>
+<a href="https://www.google.com/url?q=https://discord.gg/MTxXwxb&sa=D&ust=1599324101385000&usg=AFQjCNHSXiuwm2192GFGOwalHi5aDUAQPw" target="-blank">Discord Link to Join the GLITCH Gaming Week Server:</a>
+            </div>
+            <div class="col-md-6  heading" style="padding-top: 25px;">
+                <h2 style ="font-family: 'Trade Winds', cursive;" class="text-center">Registration Form</h2>           
+                    <form  method="POST" action="/minecraft">
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input id="myname" name="name" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Email ID:</label>
+                            <input id="myemail" name="email" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>College/School Name:</label>
+                            <input id="myclg" name="college" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number:</label>
+                            <input id="mynum" name="mobileno" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Minecraft User Name:</label>
+                            <input id="myusername" name="username" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Discord Name:</label>
+                            <input id="mydiscord" name="discordname" class="form-control" type="text"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred launcher to play Minecraft:</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" name="launcher"
+                        value="Official Minecraft Launcher">Official Minecraft Launcher<br>
+                            <input type="radio" name="launcher"
+                        value="TLauncher">TLauncher<br>
+                            <input type="radio" name="launcher"
+                        value="Other:">Other:<br>
+                        <input id="mylauncher" class="form-control" name="otherlauncher" type="text"/>
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="text-center">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>    
+    <script>
+        bootstrapValidate('#myemail','email:Enter a valid Email address')
+        bootstrapValidate('#myname', 'required:This field is required')
+        bootstrapValidate('#myclg', 'required:This field is required')
+        bootstrapValidate('#mynum', 'max:10:Enter a valid number')
+        bootstrapValidate('#mydiscord', 'required:This field is required')
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
