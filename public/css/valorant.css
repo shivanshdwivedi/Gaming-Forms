@@ -45,7 +45,7 @@ select.form-control:focus {
 
 @media only screen and (max-width: 480px) {
     body{
-    background: url("../images/valorant.png");
+    background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)),url("../images/valorant.png");
     opacity: 80%;
     }
 }

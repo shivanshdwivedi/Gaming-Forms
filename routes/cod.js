@@ -1,47 +1,38 @@
 const express = require("express");
 const router = express.Router();
-const Chess = require("../models/Chess");
+const Cod = require("../models/Cod");
 
 router.get("/", (req, res) => {
-  res.render("formss",{
+  res.render("COD",{
     error: req.flash("error"),
     success: req.flash("success"),
   });
 });
 
 router.post("/", async (req, res) => {
-  const {
-    name,
-    email,
-    college,
-    mobileno,
-    discordname,
-    chessbaseAccount,
-    chessbaseID,
-  } = req.body;
+  const { name, email, college, mobileno, codUsername, discordname } = req.body;
 
   try {
-    let chessuser = await Chess.findOne({ email });
-    if (chessuser) {
+    let coduser = await Cod.findOne({ email });
+    if (coduser) {
       req.flash("error", "Email already registered");
       // return res.status(400).json({ errors: [{ msg: "Email already exists" }] });
-      return res.redirect("/chess");
+      return res.redirect("/cod");
     }
-    chessuser = new Chess({
+    coduser = new Cod({
       name,
       email,
       college,
       mobileno,
+      codUsername,
       discordname,
-      chessbaseAccount,
-      chessbaseID,
     });
 
-    chessuser
+    coduser
       .save()
       .then(() => {
         req.flash("success", "Thank you for registering!");
-        res.redirect("/chess");
+        res.redirect("/cod");
       })
       .catch((err) => {
         res.status(500).send("Server error");

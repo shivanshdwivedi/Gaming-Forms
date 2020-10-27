@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COD</title>
     <!-- CSS only -->
-    <link rel="stylesheet" href="COD.css">
+    <link rel="stylesheet" href="css/COD.css">
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -13,6 +13,22 @@
 </head>
 <body>
     <div class="container">
+        <%if(error.length>0){%>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <%=error%>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <%}%>
+          <%if(success.length>0){%>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <%=success%>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <%}%>
         <div class="row">
             <div class="col-md-6 mid" style="padding-top: 25px; margin-top: 10px">
                 <a href="https://bvpcsi.com"
@@ -57,30 +73,30 @@
             </div>
             <div class="col-md-6  heading" style="padding-top: 25px">
                 <h2 style ="font-family: 'Trade Winds', cursive;" class="text-center">Registration Form</h2>           
-                    <form>
+                    <form method="POST" action="/cod">
                         <div class="form-group">
                             <label>Name:</label>
-                            <input id="myname" class="form-control" type="text"/>
+                            <input id="myname" name="name" class="form-control" type="text"/>
                         </div>
                         <div class="form-group">
                             <label>Email ID:</label>
-                            <input id="myemail" class="form-control" type="text"/>
+                            <input id="myemail" name="email" class="form-control" type="text"/>
                         </div>
                         <div class="form-group">
                             <label>College/School Name:</label>
-                            <input id="myclg" class="form-control" type="text"/>
+                            <input id="myclg" name="college" class="form-control" type="text"/>
                         </div>
                         <div class="form-group">
                             <label>Mobile Number:</label>
-                            <input id="mynum" class="form-control" type="text"/>
+                            <input id="mynum" name="mobileno" class="form-control" type="text"/>
                         </div>
                         <div class="form-group">
                             <label>CODM User Name:</label>
-                            <input id="myCOD" class="form-control" type="text"/>
+                            <input id="myCOD" name="codUsername" class="form-control" type="text"/>
                         </div>
                         <div class="form-group">
                             <label>Discord Name:</label>
-                            <input id="mydiscord" class="form-control" type="text"/>
+                            <input id="mydiscord" name="discordname" class="form-control" type="text"/>
                         </div>
                         <button type="submit" class="btn btn-success">Submit</button>
                         </div>
@@ -95,5 +111,8 @@
         bootstrapValidate('#mynum', 'max:10:Enter a valid number')
         bootstrapValidate('#mydiscord', 'required:This field is required')
     </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
