@@ -6,11 +6,13 @@ const session = require("express-session");
 const flush = require("connect-flash");
 
 const connectDB = require("./config/db");
+const { db } = require("./models/Cod");
 
 //Add this to your repo
 
 //CONNECT TO DATABASE
 connectDB();
+db.connect();
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
