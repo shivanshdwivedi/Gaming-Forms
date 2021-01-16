@@ -7,6 +7,8 @@ const flush = require("connect-flash");
 
 const connectDB = require("./config/db");
 
+//Add this to your repo
+
 //CONNECT TO DATABASE
 connectDB();
 
